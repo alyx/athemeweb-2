@@ -26,5 +26,8 @@ module AthemeWeb
     end
     use Rack::Deflater
     use Routes::Main
+    def self.config(sec, item)
+      @@config[sec][item]
+    end
   end
 end
