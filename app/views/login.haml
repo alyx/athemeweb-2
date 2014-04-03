@@ -1,0 +1,32 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    %meta{content: "", name: "description"}/
+    %meta{content: "", name: "author"}/
+    %link{href: "/ico/favicon.ico", rel: "shortcut icon"}/
+    %title Signin Template for Bootstrap
+    / Bootstrap core CSS
+    %link{href: "/css/bootstrap.min.css", rel: "stylesheet"}/
+    / Custom styles for this template
+    %link{href: "/css/signin.css", rel: "stylesheet"}/
+    / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    /[if lt IE 9]
+      <script src="/js/html5shiv.js"></script>
+      <script src="/js/respond.min.js"></script>
+  %body
+    .container
+      - if flash[:notice]
+        %div.alert.alert-danger= flash[:notice]
+      %form.form-signin{role: "form", action: "/user/login", method: "POST"}
+        %h2.form-signin-heading Please sign in
+        %input.form-control{autofocus: "", placeholder: "Username", required: "", type: "username", name: "username"}/
+        %input.form-control{placeholder: "Password", required: "", type: "password", name: "password"}/
+        %button.btn.btn-lg.btn-primary.btn-block{type: "submit"} Sign in
+    / /container
+    /
+      Bootstrap core JavaScript
+      \==================================================
+    / Placed at the end of the document so the pages load faster

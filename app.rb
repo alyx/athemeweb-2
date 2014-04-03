@@ -14,25 +14,17 @@ module AthemeWeb
   class App < Sinatra::Application
     @@config = YAML.load_file('athemeweb.conf')
     @@xmlrpc = XMLRPC::Client.new(@@config['atheme']['host'], '/xmlrpc', @@config['atheme']['port'])
-    log_file = File.open('athemeweb.log', 'a+')
-    log_file.sync = true
-    @@logger = Logger.new(log_file)
-    @@logger.level = Logger::DEBUG
     configure do
-      register Sinatra::Async
       disable :method_override
       disable :static
       set :bind, @@config['app']['host']
       set :port, @@config['app']['port']
       set :server, :thin
-      set :logger, @@logger
-      set :sessions,
-        :httponly     => true,
-        :secure       => production?,
-        :expire_after => 31557600,
-        :secret       => @@config['app']['secret']
     end
+    enable :sessions
     use Rack::Deflater
+    use Rack::Session::Cookie, :secret => @@config['app']['secret']
+    use Rack::Session::Pool, :expire_after => 31557600
     use Rack::Flash
     use Routes::Main
     def self.config(sec, item)
