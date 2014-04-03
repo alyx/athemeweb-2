@@ -1,6 +1,9 @@
+require 'app/helpers/atheme'
+
 module AthemeWeb
   module Routes
     class Main < Sinatra::Application
+      helpers AthemeWeb::AthemeHelper
       configure do
         set :views, 'app/views'
         set :root, File.expand_path('../../../', __FILE__)
