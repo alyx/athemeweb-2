@@ -2,6 +2,7 @@ require 'rubygems'
 require 'bundler'
 require 'yaml'
 require 'xmlrpc/client'
+require 'rack-flash'
 
 Bundler.require
 $: << File.expand_path('../', __FILE__)
@@ -32,6 +33,7 @@ module AthemeWeb
         :secret       => @@config['app']['secret']
     end
     use Rack::Deflater
+    use Rack::Flash
     use Routes::Main
     def self.config(sec, item)
       @@config[sec][item]
