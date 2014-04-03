@@ -1,0 +1,57 @@
+body, .jumbotron, .well {
+	background-color: #F2F2F2;
+}
+
+.iris, .iris:hover {
+	color: #43ac6a;
+	text-decoration: none;
+}
+
+.web, .web:hover {
+	color: #e99002;
+	text-decoration: none;
+}
+
+.atheme, .atheme:hover {
+	color: #008CBA;
+	text-decoration: none;
+}
+
+.jumbotron {
+  text-align: center;
+}
+
+.marketing-text {
+  text-align: center;
+}
+
+.nav-list {
+	font-size: 13px;
+}
+
+.current {
+	font-weight: bold;
+}
+
+.nav-list > li > a {
+	padding: 3px 15px;
+}
+
+.nav .nav-header {
+    display: block;
+    padding: 3px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 18px;
+    text-transform: uppercase;
+	color: rgb(153, 153, 153);
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+.row {
+	padding: 0px 0px 0px 0px;
+}
+
+.ircd-list {
+	font-size: 14px;
+}
