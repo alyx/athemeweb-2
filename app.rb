@@ -9,6 +9,7 @@ $: << File.expand_path('../', __FILE__)
 $: << File.expand_path('../lib', __FILE__)
 
 require 'app/routes/main'
+require 'app/routes/user'
 
 module AthemeWeb
   class App < Sinatra::Application
@@ -20,13 +21,15 @@ module AthemeWeb
       set :bind, @@config['app']['host']
       set :port, @@config['app']['port']
       set :server, :thin
+      set :sessions,
+        :secret => @@config['app']['secret']
     end
-    enable :sessions
     use Rack::Deflater
     use Rack::Session::Cookie, :secret => @@config['app']['secret']
     use Rack::Session::Pool, :expire_after => 31557600
     use Rack::Flash
     use Routes::Main
+    use Routes::User
     def self.config(sec, item)
       @@config[sec][item]
     end
