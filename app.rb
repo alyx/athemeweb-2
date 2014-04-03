@@ -37,7 +37,7 @@ module AthemeWeb
       @@config[sec][item]
     end
     def self.xmlrpc_get(method, *args)
-      @@xmlrpc.call(method, *args)
+      @@xmlrpc.call2(method, *args)
     end
     def self.log(data)
       @@logger.debug data
