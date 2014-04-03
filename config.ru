@@ -1,3 +1,4 @@
+#\ -p 4657
 require './app'
 
-AthemeWeb::App.run!
+run AthemeWeb::App

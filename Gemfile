@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem 'sinatra', require: 'sinatra/base'
 gem 'haml'
-gem 'async_sinatra'
+gem 'async-rack'
 gem 'eventmachine'
 gem 'thin'
 gem 'logger'
