@@ -15,6 +15,7 @@ module AthemeWeb
         success, cookie = AthemeWeb::App.xmlrpc_get('atheme.login', params[:username], params[:password], request.ip)
         if success
           session[:authcookie] = cookie
+          session[:user] = params[:username]
           body { cookie }
         else
           flash[:notice] = cookie.faultString
